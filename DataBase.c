@@ -72,16 +72,83 @@ void menu1(){
         N += n;
 		break;
     case '4':
-        printf("Vvedite nomer stroki dlya ydaleniya\n");
-        scanf("%d", &p);
-        for(i = p; i < N - 1; i++){
-            strcpy(A[i].firstName, A[i+1].firstName);
-            strcpy(A[i].secondName, A[i+1].secondName);
-            A[i].age = A[i+1].age;
-            A[i].weight = A[i+1].weight;
+    	printf("Vyberite priznak:\n1.fN\n2.sN\n3.age\n4.weight\n5.Nomer stroki\n");
+		scanf("%d", &search);
+		switch(search){
+			case 1 : 
+				printf("Vvedite IMYA\n");
+				scanf("%s", &name);
+				for(i = 0; i < N; i++){
+					if(strcmp(name, A[i].firstName) == 0){
+						for(p = i; p < N - 1; p++){
+				            strcpy(A[p].firstName, A[p+1].firstName);
+				            strcpy(A[p].secondName, A[p+1].secondName);
+				            A[p].age = A[p+1].age;
+				            A[p].weight = A[p+1].weight;
+							}
+						N--;
+					}
+				}	
+			break;
+			case 2 : 
+				printf("Vvedite FAMILYU\n");
+				scanf("%s", &family);
+				for(i = 0; i < N; i++){
+					if(strcmp(family, A[i].secondName) == 0){
+						for(p = i; p < N - 1; p++){
+				            strcpy(A[p].firstName, A[p+1].firstName);
+				            strcpy(A[p].secondName, A[p+1].secondName);
+				            A[p].age = A[p+1].age;
+				            A[p].weight = A[p+1].weight;
+							}
+						N--;
+					}
+				}
+			break;
+			case 3 : 
+				printf("Vvedite VOZRAST\n");
+				scanf("%d", &aggge);
+				for(i = 0; i < N; i++){
+					if(aggge == A[i].age){
+						for(p = i; p < N - 1; p++){
+				            strcpy(A[p].firstName, A[p+1].firstName);
+				            strcpy(A[p].secondName, A[p+1].secondName);
+				            A[p].age = A[p+1].age;
+				            A[p].weight = A[p+1].weight;
+							}
+						N--;
+					}
+				}
+			break;
+			case 4 : 
+				printf("Vvedite VES\n");
+				scanf("%d", &ves);
+				for(i = 0; i < N; i++){
+					if(ves == A[i].weight){
+						for(p = i; p < N - 1; p++){
+				            strcpy(A[p].firstName, A[p+1].firstName);
+				            strcpy(A[p].secondName, A[p+1].secondName);
+				            A[p].age = A[p+1].age;
+				            A[p].weight = A[p+1].weight;
+							}
+						N--;
+					}
+				}
+			break;
+			case 5 :
+				printf("Vvedite nomer stroki dlya ydaleniya\n");
+	        	scanf("%d", &p);
+	        	for(i = p; i < N - 1; i++){
+	            strcpy(A[i].firstName, A[i+1].firstName);
+	            strcpy(A[i].secondName, A[i+1].secondName);
+	            A[i].age = A[i+1].age;
+	            A[i].weight = A[i+1].weight;
+				}
+				N--;
+			break;	
 		}
-		N--;
-		break;
+	break;
+        
 	case '5':
 		printf("Vyberite priznak:\n1.fN\n2.sN\n3.age\n4.weight\n");
 		scanf("%d", &search);
